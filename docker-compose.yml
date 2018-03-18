@@ -1,0 +1,29 @@
+version: "3.1"
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    networks:
+      - grocery-wholesaler
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/db:/data/db
+    ports:
+        - 27017:27017
+
+#  grocery-wholesaler:
+#    image: grocery-wholesaler/grocery-wholesaler:latest
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      - grocery-wholesaler
+#    links:
+#        - mongodb
+#    depends_on:
+#        - mongodb
+
+networks:
+  grocery-wholesaler:

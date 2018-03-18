@@ -1,27 +1,32 @@
-package model;
+package grocerywholesaler.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
 
-public class ProduceModel {
+@Document(collection = "produce")
+public class Produce {
     @Id
     private String id;
     @NotNull(message = "Produce must be given a name")
     private String name;
     @NotNull(message = "Produce must be given a price")
-    private int price;
+    private double price;
     @NotNull(message = "Produce must be given a stock level")
     private int stock;
     private String updated;
 
-    public ProduceModel(String name, int price, int stock) {
+    public Produce() {
+    }
+
+    public Produce(String name, double price, int stock) {
         this.name = name;
         this.price = price;
         this.stock = stock;
     }
 
-    public ProduceModel(String name, int price, int stock, String updated) {
+    public Produce(String name, double price, int stock, String updated) {
         this.name = name;
         this.price = price;
         this.stock = stock;
@@ -36,11 +41,11 @@ public class ProduceModel {
         this.name = name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
