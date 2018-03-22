@@ -14,16 +14,16 @@ services:
     ports:
         - 27017:27017
 
-#  grocery-wholesaler:
-#    image: grocery-wholesaler/grocery-wholesaler:latest
-#    ports:
-#      - "8080:8080"
-#    networks:
-#      - grocery-wholesaler
-#    links:
-#        - mongodb
-#    depends_on:
-#        - mongodb
+  grocery-wholesaler:
+    image: grocery-wholesaler/grocery-wholesaler:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - grocery-wholesaler
+    links:
+        - mongodb
+    depends_on:
+        - mongodb
 
 networks:
   grocery-wholesaler:
