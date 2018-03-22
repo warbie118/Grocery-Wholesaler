@@ -4,7 +4,7 @@
 
 
 ----------
-**Software installed**
+**Prerequisites**
 
  - Docker & Docker-compose
  - Maven
